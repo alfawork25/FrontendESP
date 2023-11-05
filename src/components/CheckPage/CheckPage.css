@@ -1,0 +1,51 @@
+.customAddButton {
+    padding: 0px !important;
+}
+.link {
+    text-decoration: none;
+    color: white;
+    display: block;
+    width: 100%;
+    padding: 6px;
+}
+
+.linkToAdd {
+    text-decoration: none;
+    background-color: rgb(25, 181, 58);
+    color: rgb(240, 242, 244);
+    display: inline-block;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 5%;
+}
+
+.linkAdditional {
+    color: black;
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-bottom: 20px
+}
+
+.menuItem {
+    text-decoration: none;
+    color: black;
+    padding: 11px;
+    display: block;
+    width: 100%;
+}
+.active {
+    background-color: rgb(25 181 58);
+    color: aliceblue;
+}
+
+.proccesMenuItem {
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-size: 19px;
+}
+.proccesMenuItemActive {
+    border-bottom: 1px solid rgb(23, 22, 22);
+}
