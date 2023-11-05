@@ -4,7 +4,6 @@ on:
  push:
    branches: ["master"]
 env:
-  
   dev: https://localhost:7198/api/Check/
   prod: http://172.19.26.205:93/api/Check/
   devProcessConnection: https://localhost:7198/api/Process/
