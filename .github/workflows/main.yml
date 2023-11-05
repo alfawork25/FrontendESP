@@ -8,6 +8,7 @@ env:
   prod: http://172.19.26.205:93/api/Check/
   devProcessConnection: https://localhost:7198/api/Process/
   prodProcessConnection: http://172.19.26.205:93/api/Process/
+  prodRevision: http://172.19.26.205:93/Revision/
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,6 +25,7 @@ jobs:
       run: | 
             sed -i 's|${{ env.dev }}|${{ env.prod }}|g' src/api/checkAPI.js
             sed -i 's|${{ env.devProcessConnection }}|${{ env.prodProcessConnection }}|g' src/api/processAPI.js
+            sed -i 's|https://localhost:7198/api/Revision/|${{ prodRevision.prodProcessConnection }}|g' src/api/revisionAPI.js
     - name: Build React Project
       run: npm run build
     - name: Upload Artifacts
