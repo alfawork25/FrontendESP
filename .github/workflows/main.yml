@@ -1,0 +1,39 @@
+name: Build and Push
+on:
+ workflow_dispatch:
+ push:
+   branches: ["master"]
+env:
+  
+  dev: https://localhost:7198/api/Check/
+  prod: http://172.19.26.205:93/api/Check/
+  devProcessConnection: https://localhost:7198/api/Process/
+  prodProcessConnection: http://172.19.26.205:93/api/Process/
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get repository
+      uses: actions/checkout@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: Install dependecies
+      run: npm ci
+    - name: Replace connection strings checkAPI
+      run: | 
+            sed -i 's|${{ env.dev }}|${{ env.prod }}|g' src/api/checkAPI.js
+            sed -i 's|${{ env.devProcessConnection }}|${{ env.prodProcessConnection }}|g' src/api/processAPI.js
+    - name: Build React Project
+      run: npm run build
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        path: build
+        name: build-files
+    - name: Get Artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: build-files
+     
