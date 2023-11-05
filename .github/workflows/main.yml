@@ -25,7 +25,7 @@ jobs:
       run: | 
             sed -i 's|${{ env.dev }}|${{ env.prod }}|g' src/api/checkAPI.js
             sed -i 's|${{ env.devProcessConnection }}|${{ env.prodProcessConnection }}|g' src/api/processAPI.js
-            sed -i 's| https://localhost:7198/api/Revision/ |${{ prodRevision.prodProcessConnection }}|g' src/api/revisionAPI.js
+            sed -i 's|https://localhost:7198/api/Revision/|${{ env.prodRevision }}|g' src/api/revisionAPI.js
     - name: Build React Project
       run: npm run build
     - name: Upload Artifacts
