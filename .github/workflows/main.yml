@@ -8,7 +8,7 @@ env:
   prod: http://172.19.26.205:93/api/Check/
   devProcessConnection: https://localhost:7198/api/Process/
   prodProcessConnection: http://172.19.26.205:93/api/Process/
-  prodRevision: http://172.19.26.205:93/Revision/
+  prodRevision: http://172.19.26.205:93/api/Revision/
 jobs:
   build:
     runs-on: ubuntu-latest
